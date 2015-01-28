@@ -37,15 +37,15 @@ public class PaymentEditorViewModel() : ValidatingScreen
 public class OrderLine : ValidatingScreen 
 {
   string _Number;
-  public string Number 
+  public string ProductName 
   { 
     get
     {
-      return _Number;
+      return _ProductName;
     }
     set
     {
-      _Number = value;
+      _ProductName = value;
     }
   }
 }
@@ -53,4 +53,16 @@ public class OrderLine : ValidatingScreen
 public class Order : ValidatingConductor<OrderLine>.Collection.OneActive
 {
 }
-'''
+```
+4. Add some validation rules to the Screen ViewModel. Of course you can add validation rules to the Conductor too:
+```
+...
+  // Constructor
+  public OrderLine()
+  {
+    AddValidationRule(() => Number).Condition(() => string.IsNullOrWhitespace(Number)).Message("Please fill the product name");
+  }
+...
+```
+Please note: conductor will validate through its screens automatically gathering validation results for you.
+5. Create some views for view model. Do not forget bind any control to the 'Error' property.
