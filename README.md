@@ -1,5 +1,5 @@
 # Caliburn.Micro.Validation
-## What is it and what it for at a glance
+## What is it and what is it for at a glance
 Small extension for Caliburn.Micro which enables fluent builder style validation rules. 
 For example: 
 
