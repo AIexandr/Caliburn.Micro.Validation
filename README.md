@@ -1,9 +1,10 @@
 # Caliburn.Micro.Validation
+#### What is it and what it for at a glance
 Small extension for Caliburn.Micro which enables fluent builder style validation rules. 
 For example: 
 
 ```C#
-public class PaymentEditorViewModel()
+public class PaymentEditorViewModel() : ValidatingScreen
 {
   public PaymentEditorViewModel()
   {
