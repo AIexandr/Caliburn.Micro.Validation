@@ -9,3 +9,5 @@ public class PaymentEditorViewModel()
     AddValidationRule(() => PaymentSum).Condition(() => PaymentSum &lt;= 0).Message("Please enter payment sum");
   }
 }
+
+Please be patient, work in progress. I'll push source code as soon as possible. Thanks!
