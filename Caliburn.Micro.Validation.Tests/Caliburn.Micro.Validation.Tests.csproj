@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Caliburn.Micro">
+      <HintPath>..\Libs\Caliburn.Micro.1.5.2\Caliburn.Micro.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -51,6 +54,13 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidatorTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Caliburn.Micro.Validation\Caliburn.Micro.Validation.csproj">
+      <Project>{12dfe382-b20b-4e0e-8ba8-b06ecd71c7ac}</Project>
+      <Name>Caliburn.Micro.Validation</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

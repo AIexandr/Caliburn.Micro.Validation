@@ -51,7 +51,7 @@ namespace Caliburn.Micro.Validation
 
     public virtual string Validate()
     {
-      return Validate(GetType().GetProperties().Select(x => x.Name).ToList());
+      return Validate(GetType().GetProperties().Select(x => x.Name).Union(_validationRules.Keys));
     }
 
     string Validate(string propertyName)
