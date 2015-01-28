@@ -35,6 +35,8 @@ namespace Caliburn.Micro.Validation.Tests
       TestInt = 100;
       validator.Validate();
       Assert.AreEqual("Test object validation message", validator.Error);
+      Assert.AreEqual("Test object validation message", validator["TestObject"]);
+      Assert.IsTrue(string.IsNullOrWhiteSpace(validator["TestInt"]));
 
       TestObject = new object();
       Assert.AreEqual("", validator.Validate());
