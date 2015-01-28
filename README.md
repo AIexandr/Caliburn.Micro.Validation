@@ -29,4 +29,28 @@ public class PaymentEditorViewModel() : ValidatingScreen
 }
 ```
 
-Please be patient, work in progress. I'll push source code as soon as possible. Thanks!
+##Quick start
+1. Create your Caliburn.Micro powered project.
+2. Clone Caliburn.Micro.Validation to your solution and reference it in the project.
+3. Create some view models according to your needs and derive its from ValidatingConductor or ValidatingScreen:
+```
+public class OrderLine : ValidatingScreen 
+{
+  string _Number;
+  public string Number 
+  { 
+    get
+    {
+      return _Number;
+    }
+    set
+    {
+      _Number = value;
+    }
+  }
+}
+
+public class Order : ValidatingConductor<OrderLine>.Collection.OneActive
+{
+}
+'''
