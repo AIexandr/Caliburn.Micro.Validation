@@ -7,7 +7,7 @@ public class PaymentEditorViewModel()
 {
   public PaymentEditorViewModel()
   {
-    AddValidationRule(() => PaymentSum).Condition(() => PaymentSum &lt;= 0).Message("Please enter payment sum");
+    AddValidationRule(() => PaymentSum).Condition(() => PaymentSum <= 0).Message("Please enter payment sum");
   }
   
   #region PaymentSum property
