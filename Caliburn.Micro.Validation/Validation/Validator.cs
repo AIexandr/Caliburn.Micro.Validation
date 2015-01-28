@@ -37,6 +37,7 @@ namespace Caliburn.Micro.Validation
     {
       get 
       {
+        Validate();
         return Strings.Agregate(Environment.NewLine, _errors.Select(x => x.Value).Distinct().ToArray());
       }
     }
@@ -51,6 +52,7 @@ namespace Caliburn.Micro.Validation
 
     public virtual string Validate()
     {
+      _errors.Clear();
       return Validate(GetType().GetProperties().Select(x => x.Name).Union(_validationRules.Keys));
     }
 

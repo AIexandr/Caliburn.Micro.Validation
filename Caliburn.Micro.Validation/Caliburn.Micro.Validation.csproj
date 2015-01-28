@@ -44,9 +44,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />
-    <Compile Include="ValidatingConductor.cs" />
-    <Compile Include="ValidatingScreen.cs" />
-    <Compile Include="Validator.cs" />
+    <Compile Include="Validation\ValidatingConductor.cs" />
+    <Compile Include="Validation\ValidatingScreen.cs" />
+    <Compile Include="Validation\Validator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

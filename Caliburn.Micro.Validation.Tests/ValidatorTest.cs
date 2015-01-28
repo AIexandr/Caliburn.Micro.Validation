@@ -41,6 +41,13 @@ namespace Caliburn.Micro.Validation.Tests
       TestObject = new object();
       Assert.AreEqual("", validator.Validate());
       Assert.AreEqual("", validator.Error);
+
+      TestObject = null;
+      validator.Validate();
+      Assert.AreEqual("Test object validation message", validator.Error);
+      validator.RemoveValidationRule(() => TestObject);
+      validator.Validate();
+      Assert.IsTrue(string.IsNullOrWhiteSpace(validator.Error));
     }
   }
 }

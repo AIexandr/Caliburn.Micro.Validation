@@ -54,6 +54,25 @@ namespace Caliburn.Micro.Validation
           return Strings.Agregate(Environment.NewLine, results.ToArray());
         }
       }
+
+      public override string this[string columnName]
+      {
+        get
+        {
+          var results = new List<string>();
+          foreach (var i in _Conductor.GetChildren())
+          {
+            var validator = i as ISupportValidation;
+            if (validator == null) continue;
+
+            results.Add(validator[columnName]);
+          }
+
+          results.Add(base[columnName]);
+
+          return Strings.Agregate(Environment.NewLine, results.ToArray());
+        }
+      }
     }
 
     public new class Collection

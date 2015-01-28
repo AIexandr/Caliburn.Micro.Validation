@@ -54,7 +54,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidatingConductorAndScreenTest.cs" />
     <Compile Include="ValidatorTest.cs" />
+    <Compile Include="ViewModels\TestConductor.cs" />
+    <Compile Include="ViewModels\TestScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Caliburn.Micro.Validation\Caliburn.Micro.Validation.csproj">
