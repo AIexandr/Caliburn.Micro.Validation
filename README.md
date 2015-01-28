@@ -65,4 +65,5 @@ public class Order : ValidatingConductor<OrderLine>.Collection.OneActive
 ...
 ```
 Please note: conductor will validate through its screens automatically gathering validation results for you.
-5.Create some views for view model. Do not forget bind any control to the 'Error' property.
+
+5. Create some views for view model. Do not forget bind any control to the 'Error' property.
