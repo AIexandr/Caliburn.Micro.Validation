@@ -2,7 +2,7 @@
 Small extension for Caliburn.Micro which enables fluent builder style validation rules. 
 For example: 
 
-```
+```C#
 public class PaymentEditorViewModel()
 {
   public PaymentEditorViewModel()
