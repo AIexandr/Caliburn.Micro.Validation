@@ -11,20 +11,20 @@ public class PaymentEditorViewModel()
   }
   
   #region PaymentSum property
-    decimal _PaymentSum;
-    public decimal PaymentSum
+  decimal _PaymentSum;
+  public decimal PaymentSum
+  {
+    get
     {
-      get
-      {
-        return _PaymentSum;
-      }
-      set
-      {
-        _PaymentSum = value;
-        NotifyOfPropertyChange(() => PaymentSum);
-      }
+      return _PaymentSum;
     }
-    #endregion
+    set
+    {
+      _PaymentSum = value;
+      NotifyOfPropertyChange(() => PaymentSum);
+    }
+  }
+  #endregion
 }
 ```
 
