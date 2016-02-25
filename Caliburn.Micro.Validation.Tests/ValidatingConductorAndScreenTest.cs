@@ -16,6 +16,7 @@ namespace Caliburn.Micro.Validation.Tests
     {
       var conductor = new TestConductor();
       Assert.IsFalse(string.IsNullOrWhiteSpace(conductor.Error));
+      Assert.IsTrue(conductor.HasError);
       Assert.IsNotNull(conductor["TestInt"]);
       Assert.IsTrue(conductor["TestInt"].Contains("TestInt"));
 
@@ -26,6 +27,8 @@ namespace Caliburn.Micro.Validation.Tests
       conductor.ActiveItem.TestString = "100";
       Assert.IsTrue(string.IsNullOrWhiteSpace(conductor["TestInt"]));
       Assert.IsTrue(string.IsNullOrWhiteSpace(conductor["TestString"]));
+      Assert.IsTrue(string.IsNullOrWhiteSpace(conductor.Error));
+      Assert.IsFalse(conductor.HasError);
     }
   }
 }

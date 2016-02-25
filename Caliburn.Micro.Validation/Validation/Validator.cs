@@ -42,6 +42,14 @@ namespace Caliburn.Micro.Validation
       }
     }
 
+    public bool HasError
+    {
+      get
+      {
+        return !string.IsNullOrWhiteSpace(Error);
+      }
+    }
+
     public virtual string this[string columnName]
     {
       get

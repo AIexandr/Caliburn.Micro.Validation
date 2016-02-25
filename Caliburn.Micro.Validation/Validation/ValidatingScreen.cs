@@ -23,6 +23,7 @@ namespace Caliburn.Micro.Validation
       Deferred.Execute(() =>
         {
           NotifyOfPropertyChange(() => Error);
+          NotifyOfPropertyChange(() => HasError);
         }, 100);
     }
 
@@ -36,6 +37,14 @@ namespace Caliburn.Micro.Validation
     public string Error
     {
       get { return _Validator.Error; }
+    }
+
+    public bool HasError
+    {
+      get
+      {
+        return _Validator.HasError;
+      }
     }
 
     public string this[string columnName]

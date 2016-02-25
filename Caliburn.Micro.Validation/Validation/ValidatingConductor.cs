@@ -55,6 +55,14 @@ namespace Caliburn.Micro.Validation
         }
       }
 
+      public bool HasError
+      {
+        get
+        {
+          return !string.IsNullOrWhiteSpace(Error);
+        }
+      }
+
       public override string this[string columnName]
       {
         get
@@ -132,6 +140,12 @@ namespace Caliburn.Micro.Validation
 
         public string Validate()
         {
+          Deferred.Execute(() =>
+          {
+            NotifyOfPropertyChange(() => Error);
+            NotifyOfPropertyChange(() => HasError);
+          }, 100);
+
           return _Validator.Validate();
         }
 
@@ -140,6 +154,14 @@ namespace Caliburn.Micro.Validation
           get 
           {
             return _Validator.Error;
+          }
+        }
+
+        public bool HasError
+        {
+          get
+          {
+            return _Validator.HasError;
           }
         }
 
@@ -218,12 +240,26 @@ namespace Caliburn.Micro.Validation
 
         public string Validate()
         {
+          Deferred.Execute(() =>
+          {
+            NotifyOfPropertyChange(() => Error);
+            NotifyOfPropertyChange(() => HasError);
+          }, 100);
+
           return _Validator.Validate();
         }
 
         public string Error
         {
           get { return _Validator.Error; }
+        }
+
+        public bool HasError
+        {
+          get
+          {
+            return _Validator.HasError;
+          }
         }
 
         public string this[string columnName]
@@ -254,12 +290,26 @@ namespace Caliburn.Micro.Validation
 
     public string Validate()
     {
+      Deferred.Execute(() =>
+      {
+        NotifyOfPropertyChange(() => Error);
+        NotifyOfPropertyChange(() => HasError);
+      }, 100);
+
       return _Validator.Validate();
     }
 
     public string Error
     {
       get { return _Validator.Error; }
+    }
+
+    public bool HasError
+    {
+      get
+      {
+        return _Validator.HasError;
+      }
     }
 
     public string this[string columnName]

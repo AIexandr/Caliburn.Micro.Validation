@@ -21,26 +21,31 @@ namespace Caliburn.Micro.Validation.Tests
 
       Assert.AreEqual("", validator.Validate());
       Assert.AreEqual("", validator.Error);
+      Assert.IsFalse(validator.HasError);
 
       validator.AddValidationRule(() => TestInt).Condition(() => TestInt <= 0).Message("Test int validation message");
       validator.Validate();
       Assert.IsFalse(string.IsNullOrWhiteSpace(validator.Validate()));
       Assert.AreEqual("Test int validation message", validator.Error);
+      Assert.IsTrue(validator.HasError);
 
       validator.AddValidationRule(() => TestObject).Condition(() => TestObject == null).Message("Test object validation message");
       validator.Validate();
       Assert.IsTrue(validator.Error.Contains("Test int validation message"));
       Assert.IsTrue(validator.Error.Contains("Test object validation message"));
+      Assert.IsTrue(validator.HasError);
 
       TestInt = 100;
       validator.Validate();
       Assert.AreEqual("Test object validation message", validator.Error);
       Assert.AreEqual("Test object validation message", validator["TestObject"]);
       Assert.IsTrue(string.IsNullOrWhiteSpace(validator["TestInt"]));
+      Assert.IsTrue(validator.HasError);
 
       TestObject = new object();
       Assert.AreEqual("", validator.Validate());
       Assert.AreEqual("", validator.Error);
+      Assert.IsFalse(validator.HasError);
 
       TestObject = null;
       validator.Validate();
@@ -48,6 +53,7 @@ namespace Caliburn.Micro.Validation.Tests
       validator.RemoveValidationRule(() => TestObject);
       validator.Validate();
       Assert.IsTrue(string.IsNullOrWhiteSpace(validator.Error));
+      Assert.IsFalse(validator.HasError);
     }
   }
 }
