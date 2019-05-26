@@ -4,7 +4,7 @@ A small extension for Caliburn.Micro which enables fluent builder style validati
 For example: 
 
 ```C#
-public class PaymentEditorViewModel() : ValidatingScreen
+public class PaymentEditorViewModel : ValidatingScreen
 {
   public PaymentEditorViewModel()
   {
